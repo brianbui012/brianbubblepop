@@ -1,0 +1,144 @@
+@import './base/settings';
+@import './base/base';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+}
+
+#app {
+    display: block;
+    margin: auto;
+    width: 800px;
+    text-align: center;
+}
+
+.container {
+    width: 60rem;
+    height: 70rem;
+    background-color: #004d66;
+    margin: auto;
+}
+
+.gameboard {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 30rem;
+    // background: white;
+}
+
+.startbtn {
+    margin: 3rem 0 2rem 0;
+    width: 8rem;
+    height: 8rem;
+}
+
+.colorCircle-level1 {
+    width: 15rem;
+    height: 15rem;
+}
+
+.colorCircle-level2 {
+    width: 10rem;
+    height: 10rem;
+}
+
+.colorCircle-level3 {
+    width: 7.5rem;
+    height: 7.5rem;
+}
+
+.colorCircle-level4 {
+    width: 6rem;
+    height: 6rem;
+}
+
+.circleBtn {
+    animation: .2s linear 0s 1 growCircle;
+}
+
+// .circleBtn:hover {
+//     transform: scale(.6);
+// }
+
+@keyframes growCircle {
+    0% {
+        transform: scale(.3)
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+p {
+    opacity: 0;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+}
+
+.incorrect {
+    opacity: 1;
+    animation: .5s linear 0s 1 shake;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.timerBtn {
+    width: 7rem;
+    height: 7rem;
+}

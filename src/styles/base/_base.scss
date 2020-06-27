@@ -1,0 +1,22 @@
+// rem (better support for accessibility)
+html {
+    //makes rem = 10px
+    font-size: 62.5%;
+}
+
+
+body {
+    font-family: Helvetica, Arial, san-serif;
+    //now rem is 16px
+    font-size: $m-size;
+    background-color: #203c589a;
+    color: white;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
