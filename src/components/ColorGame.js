@@ -11,7 +11,13 @@ class ColorGame extends React.Component {
     constructor(props) {
         super(props);
 
-        this.colorSet = [["#e8d505", "#d9c704"], ["#33a151", "#2e8f48"], ["#2e368f", "#272e7a"], ["#873333", "#7a2f2f"]];
+        this.colorSet = [
+            ["#e8d505", "#d9c704"],
+            ["#33a151", "#2e8f48"],
+            ["#2e368f", "#272e7a"],
+            ["#873333", "#7a2f2f"],
+
+        ];
 
         this.pickColorPair = this.pickColorPair.bind(this);
         this.loadColor = this.loadColor.bind(this);
@@ -98,6 +104,11 @@ class ColorGame extends React.Component {
             this.levelMode();
             this.pickColorPair();
 
+            this.setState({ wrongClassName: "correct" });
+            setTimeout(() => {
+                this.setState({ wrongClassName: "" })
+            }, 500);
+
         } else {
             console.log("INCORRECT GUESS!");
             incorrectPlay();
@@ -173,16 +184,28 @@ class ColorGame extends React.Component {
 
         return (
             <div className="container">
-                <h1>Spot The Difference!</h1>
-                <h2>Score: {this.state.score}</h2>
-                <h2>Size: {this.state.size}</h2>
+                <h1>
+                    <span style={{ color: '#FF9AA2' }}>B</span>
+                    <span style={{ color: '#FFB7B2' }}>U</span>
+                    <span style={{ color: '#FFDAC1' }}>B</span>
+                    <span style={{ color: '#E2F0CB' }}>B</span>
+                    <span style={{ color: '#B5EAD7' }}>L</span>
+                    <span style={{ color: '#C7CEEA' }}>E </span>
 
-                <h3>Time Left : {this.props.timer.timeLeft}</h3>
+                    <span style={{ color: '#FF9AA2' }}>P</span>
+                    <span style={{ color: '#C7CEEA' }}>O</span>
+                    <span style={{ color: '#E0FEFE' }}>P</span>
+                </h1>
+                <div className="scoreTime">
+                    <h3>TIME : <span>{this.props.timer.timeLeft}</span></h3>
+                    <h3>SCORE : <span>{this.state.score}</span> </h3>
+                </div>
 
 
                 <button className='startbtn' onClick={this.pickColorPair} disabled={this.props.game.gameStarted}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>
 
-                <p className={this.state.wrongClassName}>Try Again!</p>
+                <p className={this.state.wrongClassName}>
+                    {this.state.wrongClassName === "incorrect" ? "TRY AGAIN! -.5 SEC" : "ADD TIME +.5 SEC!"}</p>
 
                 <Gameboard
                     colors={this.state.colors}

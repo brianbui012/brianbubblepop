@@ -33,7 +33,7 @@ module.exports = {
                 'sass-loader'
             ]
         }, {
-            test: /\.mp3$/,
+            test: /\.(mp3|ttf)$/,
             loader: 'file-loader'
         }]
     },
