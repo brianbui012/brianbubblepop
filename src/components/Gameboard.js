@@ -11,7 +11,7 @@ const Gameboard = (props) => (
                     color={color}
                     isMatch={props.isMatch}
                     score={props.score}
-                    gameStarted={props.gameStarted}
+
                 />
             ))
         }

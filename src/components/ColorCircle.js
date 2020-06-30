@@ -1,27 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class ColorCircle extends React.Component {
+
+class ColorCircle extends React.Component {
     constructor(props) {
         super(props);
         this.isMatch = this.isMatch.bind(this);
-        this.levelMode = this.levelMode.bind(this);
 
     }
 
-    levelMode() {
-        console.log(this.props.score)
-        if (this.props.score < 4) {
-            return 'colorCircle-level1 circleBtn';
-        } else if (this.props.score > 13) {
-            return 'colorCircle-level4 circleBtn'
-        } else if (this.props.score > 8) {
-            return 'colorCircle-level3 circleBtn';
-        }
-        else if (this.props.score >= 4) {
-            return 'colorCircle-level2 circleBtn';
-        }
-
-    }
 
     isMatch() {
         this.props.isMatch(this.props.color);
@@ -32,8 +19,8 @@ export default class ColorCircle extends React.Component {
         return (
             <div>
                 <button
-                    disabled={!this.props.gameStarted}
-                    className={this.levelMode()} // we can make levelMode into state in redux, and then when I press replay, we can set the state to colorcircle
+                    disabled={!this.props.game.gameStarted}
+                    className={this.props.game.level} // we can make levelMode into state in redux, and then when I press replay, we can set the state to colorcircle
                     onClick={this.isMatch}
                     style={{ backgroundColor: this.props.color }}>
                 </button>
@@ -41,3 +28,17 @@ export default class ColorCircle extends React.Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        game: state.game,
+        timer: state.timer
+    };
+};
+
+
+
+
+// because we set matchdispatchtoprops here, we cannot do this.props.dispatch, we need to just set all actions used above instead.
+export default connect(mapStateToProps)(ColorCircle)
