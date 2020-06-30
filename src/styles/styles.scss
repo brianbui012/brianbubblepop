@@ -202,18 +202,68 @@ p {
 }
 
 @media (max-width: 480px) {
+
+    #app {
+        display: block;
+        margin: auto;
+        width: 30rem;
+        height: 80vh;
+        text-align: center;
+    }
+
     .container {
-        width: 60rem;
-        margin-top: 10rem;
+        padding: 1rem;
+        width: 30rem;
+        height: 80vh;
+    }
+
+    h1 {
+        margin: 1rem;
+        font-size: 5rem;
     }
 
     h3 {
-        font-size: 5rem;
+        font-size: 2.5rem;
         margin: 3rem 0 0 0;
     }
 
     .startbtn {
         display: inline-block;
         margin-top: 5rem;
+        font-size: 2rem;
+        width: 8rem;
+        height: 4rem;
     }
+
+    .gameboard {
+        width: 30rem;
+        margin: 0;
+    }
+
+    p {
+        margin: 2rem 0;
+        font-size: 3rem;
+    }
+
+    .colorCircle-level1 {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .colorCircle-level2 {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .colorCircle-level3 {
+        width: 7.5rem;
+        height: 7.5rem;
+    }
+
+    .colorCircle-level4 {
+        width: 6rem;
+        height: 6rem;
+    }
+
+
 }
