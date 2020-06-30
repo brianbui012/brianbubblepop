@@ -17,17 +17,17 @@ class ColorGame extends React.Component {
             //green
             ["#33a151", "#2e8f48"],
             //blue
-            ["#2e368f", "#272e7a"],
+            ["#2e368f", "#282f7d"],
             //red
             ["#873333", "#7a2f2f"],
             //light red - red
-            ["#913737", "#873333"],
+            ["#9e3c3c", "#873333"],
             //light blue - blue
-            ["#333b9e", "#2e368f"],
+            ["#333b9e", "#2b338c"],
             //light green - green
             ["#32994e", "#2e8f48"],
             //light pink - pink
-            ["#c983c4", '#bd7bb8'],
+            ["#d68bd1", '#bd7bb8'],
 
         ];
 
