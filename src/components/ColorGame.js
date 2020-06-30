@@ -12,10 +12,22 @@ class ColorGame extends React.Component {
         super(props);
 
         this.colorSet = [
+            //yellow
             ["#e8d505", "#d9c704"],
+            //green
             ["#33a151", "#2e8f48"],
+            //blue
             ["#2e368f", "#272e7a"],
+            //red
             ["#873333", "#7a2f2f"],
+            //light red - red
+            ["#913737", "#873333"],
+            //light blue - blue
+            ["#333b9e", "#2e368f"],
+            //light green - green
+            ["#32994e", "#2e8f48"],
+            //light pink - pink
+            ["#c983c4", '#bd7bb8'],
 
         ];
 
@@ -40,7 +52,7 @@ class ColorGame extends React.Component {
 
 
     pickColorPair() {
-        const randomNumber = Math.floor(Math.random() * 4);
+        const randomNumber = Math.floor(Math.random() * 8);
         this.setState({ colorPair: this.colorSet[randomNumber] }, () => { this.loadColor() });
         console.log('game redux', this.props.game);
 
@@ -50,7 +62,7 @@ class ColorGame extends React.Component {
         }
 
         if (this.props.timer.timeLeft === 0) {
-            this.props.startTimer(10);
+            this.props.startTimer(25);
             this.setState({ size: 4 });
             this.setState({ score: 0 });
             this.props.level1();
