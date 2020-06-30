@@ -38,14 +38,6 @@ h3 {
     display: inline;
 }
 
-// span {
-//     font-family: Helvetica, sans-serif;
-//     font-size: 5rem;
-//     width: 8rem;
-//     font-weight: normal;
-//     display: inline-block;
-// }
-
 
 #app {
     display: block;
@@ -60,6 +52,9 @@ h3 {
     margin: auto;
     padding-top: 2rem;
 }
+
+
+
 
 .gameboard {
     display: flex;
@@ -83,7 +78,7 @@ button {
 .startbtn {
     background-color: #4CAF50;
     font-family: 'FredokaOne';
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     letter-spacing: 1.1px;
     color: white;
     margin: 3rem 0 0 0;
@@ -204,4 +199,21 @@ p {
 .scoreTime {
     display: flex;
     justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 60rem;
+        margin-top: 10rem;
+    }
+
+    h3 {
+        font-size: 5rem;
+        margin: 3rem 0 0 0;
+    }
+
+    .startbtn {
+        display: inline-block;
+        margin-top: 5rem;
+    }
 }
