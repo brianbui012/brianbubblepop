@@ -51,11 +51,13 @@ class ColorGame extends React.Component {
             colorPair: [],
             size: 4,
             matchFeedbackClassName: "",
+            initialStart: true,
         }
     }
 
 
     startGame() {
+        this.setState({ initialStart: false });
         this.loadColor();
         if (this.props.game.isGameStarted === false) {
             this.countDown();
@@ -216,7 +218,7 @@ class ColorGame extends React.Component {
 
         return (
             <div className="container">
-                <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
+                <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true} animationInDuration={1800}>
                     <h1 className="title">
                         <span style={{ color: '#FF9AA2' }}>B</span>
                         <span style={{ color: '#FFB7B2' }}>U</span>
@@ -236,7 +238,7 @@ class ColorGame extends React.Component {
                 </div>
 
 
-                <button className='startbtn' onClick={this.startGame} disabled={this.props.game.isGameStarted}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>
+                {this.state.initialStart && <button className='startbtn' onClick={this.startGame}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>}
 
                 <p className={this.state.matchFeedbackClassName}>
                     {this.state.matchFeedbackClassName === "incorrect" ? "TRY AGAIN! -.5 SEC" : "ADD TIME +.5 SEC!"}</p>
