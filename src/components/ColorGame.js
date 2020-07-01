@@ -1,6 +1,6 @@
 import React from 'react';
 import Gameboard from './Gameboard';
-import { correctPlaySound, incorrectPlaySound } from '../components/sounds.js';
+import { correctPlaySound, incorrectPlaySound, startGameSound } from '../components/sounds.js';
 import { connect } from 'react-redux';
 import { startTimer, setTimerId, addTime, subtractTime } from '../actions/timer';
 import { setStartGame, setStopGame, setLevel1, setLevel2, setLevel3, setLevel4 } from '../actions/game';
@@ -57,6 +57,9 @@ class ColorGame extends React.Component {
 
 
     startGame() {
+        if (this.state.initialStart === true) {
+            startGameSound();
+        }
         this.setState({ initialStart: false });
         this.loadColor();
         if (this.props.game.isGameStarted === false) {

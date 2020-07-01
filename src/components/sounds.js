@@ -1,14 +1,27 @@
 import { Howl } from 'howler';
-import correctChime from '../sounds/correct_chime.mp3';
+import startChime from '../sounds/startChime.mp3';
 import incorrectChime from '../sounds/incorrect_chime.mp3'
+import correctChime from '../sounds/correct_chime.mp3';
+
+const startGameAudio = new Howl({
+    src: [startChime],
+    volume: 0.5
+});
 
 const correctAudio = new Howl({
-    src: [correctChime]
+    src: [correctChime],
+    volume: 0.5
 });
 
 const incorrectAudio = new Howl({
-    src: [incorrectChime]
+    src: [incorrectChime],
+    volume: 0.5
 });
+
+
+const startGameSound = () => {
+    startGameAudio.play();
+}
 
 const correctPlaySound = () => {
     correctAudio.play();
@@ -18,5 +31,5 @@ const incorrectPlaySound = () => {
     incorrectAudio.play();
 }
 
-export { correctPlaySound, incorrectPlaySound };
+export { correctPlaySound, incorrectPlaySound, startGameSound };
 
