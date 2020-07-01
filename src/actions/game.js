@@ -1,30 +1,30 @@
-export const stopGame = () => ({
-    type: 'END',
-    gameStarted: false
+export const setStopGame = () => ({
+    type: 'END_GAME',
+    isGameStarted: false
 
 });
 
-export const startGame = () => ({
-    type: 'BEGIN',
-    gameStarted: true
+export const setStartGame = () => ({
+    type: 'START_GAME',
+    isGameStarted: true
 });
 
-export const level1 = () => ({
+export const setLevel1 = () => ({
     type: 'LEVEL1',
-    level: 'colorCircle-level1 circleBtn'
+    level: 'circleSize-level1 circleBtn'
 });
 
-export const level2 = () => ({
+export const setLevel2 = () => ({
     type: 'LEVEL2',
-    level: 'colorCircle-level2 circleBtn'
+    level: 'circleSize-level2 circleBtn'
 });
 
-export const level3 = () => ({
+export const setLevel3 = () => ({
     type: 'LEVEL3',
-    level: 'colorCircle-level3 circleBtn'
+    level: 'circleSize-level3 circleBtn'
 });
 
-export const level4 = () => ({
+export const setLevel4 = () => ({
     type: 'LEVEL4',
-    level: 'colorCircle-level4 circleBtn'
+    level: 'circleSize-level4 circleBtn'
 });

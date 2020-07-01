@@ -1,6 +1,6 @@
 //STATE =========================================================
 const timerReducerDefaultState = {
-    timeLeft: 25,
+    timeLeft: 10,
     timerId: undefined
 };
 
@@ -9,7 +9,7 @@ const timerReducerDefaultState = {
 
 const timerReducer = (state = timerReducerDefaultState, action) => {
     switch (action.type) {
-        case 'START':
+        case 'START_TIMER':
             return { ...state, timeLeft: action.timeLeft };
         case 'SET_TIMER_ID':
             return { ...state, timerId: action.timerId };

@@ -1,5 +1,5 @@
 export const startTimer = (timeLeft) => ({
-    type: 'START',
+    type: 'START_TIMER',
     timeLeft
 });
 
@@ -12,6 +12,6 @@ export const addTime = () => ({
     type: 'ADD_TIME',
 })
 
-export const subTime = () => ({
+export const subtractTime = () => ({
     type: 'SUB_TIME',
 });

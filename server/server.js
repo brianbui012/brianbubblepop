@@ -1,15 +1,29 @@
 const path = require('path');
-
+const connectDB = require('../database/connnection');
 const express = require('express');
 const app = express();
-const publicPath = path.join(__dirname, "..", "public");
+const cors = require('cors');
 
+
+const publicPath = path.join(__dirname, "..", "public");
+require('dotenv').config();
+
+
+
+app.use(cors());
+app.use(express.json());
 app.use(express.static(publicPath));
 
+connectDB();
+
+
+app.use('/API/userModel', require('../API/User'))
 app.get('*', (req, res) => {
     res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-app.listen(process.env.PORT || 3000, process.env.IP, () => {
-    console.log('server is up!');
+const port = process.env.PORT || 3000;
+
+app.listen(port, process.env.IP, () => {
+    console.log(`Connected to ${port}`);
 });

@@ -1,10 +1,11 @@
 import React from 'react';
 import Gameboard from './Gameboard';
-import { correctPlay, incorrectPlay } from '../components/sounds.js';
+import { correctPlaySound, incorrectPlaySound } from '../components/sounds.js';
 import { connect } from 'react-redux';
-import { startTimer, setTimerId, addTime, subTime } from '../actions/timer';
-import { startGame, stopGame, level1, level2, level3, level4 } from '../actions/game'
+import { startTimer, setTimerId, addTime, subtractTime } from '../actions/timer';
+import { setStartGame, setStopGame, setLevel1, setLevel2, setLevel3, setLevel4 } from '../actions/game';
 import { bindActionCreators } from 'redux';
+import GameOverModal from './GameOverModal';
 
 
 class ColorGame extends React.Component {
@@ -31,58 +32,62 @@ class ColorGame extends React.Component {
 
         ];
 
-        this.pickColorPair = this.pickColorPair.bind(this);
+        this.startGame = this.startGame.bind(this);
         this.loadColor = this.loadColor.bind(this);
-        this.randomize = this.randomize.bind(this);
+        this.shuffleColorArray = this.shuffleColorArray.bind(this);
         this.isMatch = this.isMatch.bind(this);
         this.increment = this.increment.bind(this);
-        this.levelUp = this.levelUp.bind(this);
-        this.levelMode = this.levelMode.bind(this);
+        this.sizeUp = this.sizeUp.bind(this);
+        this.setCircleSize = this.setCircleSize.bind(this);
         this.countDown = this.countDown.bind(this);
-
+        this.resetGame = this.resetGame.bind(this);
+        this.correctPick = this.correctPick.bind(this);
+        this.incorrectPick = this.incorrectPick.bind(this);
 
         this.state = {
             colors: [],
             score: 0,
             colorPair: [],
             size: 4,
-            wrongClassName: "",
+            matchFeedbackClassName: "",
         }
     }
 
 
-    pickColorPair() {
-        const randomNumber = Math.floor(Math.random() * 8);
-        this.setState({ colorPair: this.colorSet[randomNumber] }, () => { this.loadColor() });
-        console.log('game redux', this.props.game);
-
-        if (this.props.game.gameStarted === false) {
+    startGame() {
+        this.loadColor();
+        if (this.props.game.isGameStarted === false) {
             this.countDown();
-            this.props.startGame();
+            this.props.setStartGame();
         }
 
         if (this.props.timer.timeLeft === 0) {
-            this.props.startTimer(25);
-            this.setState({ size: 4 });
-            this.setState({ score: 0 });
-            this.props.level1();
+            this.resetGame();
         }
     }
 
 
     loadColor() {
-        // console.log(this.state.colorPair);
-        let colorArray = [this.state.colorPair[0]];
+        //Selects a random color within the colorSet
+        const randomNumber = Math.floor(Math.random() * 8);
+        this.setState({ colorPair: this.colorSet[randomNumber] }, () => {
 
-        for (let i = 1; i < this.state.size; i++) {
-            colorArray.push(this.state.colorPair[1]);
-        }
-        this.randomize(colorArray);
-        this.setState(() => ({ colors: colorArray }));
+            /*Out of the pair chosen set the first color to the first element in the array,
+            then set the rest of the array with the second color, then shuffle*/
+            let colorArray = [this.state.colorPair[0]];
+
+            for (let i = 1; i < this.state.size; i++) {
+                colorArray.push(this.state.colorPair[1]);
+            }
+            this.shuffleColorArray(colorArray);
+            this.setState(() => ({ colors: colorArray }));
+
+        });
+
     }
 
 
-    randomize(colorArray) {
+    shuffleColorArray(colorArray) {
         for (let i = colorArray.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
             // swap elements array[i] and array[j]
@@ -97,43 +102,56 @@ class ColorGame extends React.Component {
 
     isMatch(color) {
         let counter = 0;
-        //We only need to compare the first 3 to know if we got the right answer
+        //Compares the first 3 to know if we got the right answer
         for (let i = 0; i < 3; i++) {
             if (color === this.state.colors[i]) {
                 counter++;
             }
         }
-
         if (counter < 2) {
-            console.log("CORRECT!");
-            //reset to empty for animation =============
-            this.setState({ colors: [] });
-
-            correctPlay();
-            this.increment();
-            this.props.addTime();
-            this.levelUp();
-            this.levelMode();
-            this.pickColorPair();
-
-            this.setState({ wrongClassName: "correct" });
-            setTimeout(() => {
-                this.setState({ wrongClassName: "" })
-            }, 500);
-
+            this.correctPick();
         } else {
-            console.log("INCORRECT GUESS!");
-            incorrectPlay();
-            this.props.subTime();
-            this.setState({ wrongClassName: "incorrect" });
-            setTimeout(() => {
-                this.setState({ wrongClassName: "" })
-            }, 500);
-
+            this.incorrectPick();
         }
 
 
     }
+
+    correctPick() {
+        //reset to empty for animation =============
+        this.setState({ colors: [] });
+        correctPlaySound();
+        this.increment();
+        this.props.addTime();
+        this.sizeUp();
+        this.setCircleSize();
+        this.startGame();
+
+        this.setState({ matchFeedbackClassName: "correct" });
+        setTimeout(() => {
+            this.setState({ matchFeedbackClassName: "" })
+        }, 500);
+
+    }
+
+    incorrectPick() {
+        incorrectPlaySound();
+        this.props.subtractTime();
+        this.setState({ matchFeedbackClassName: "incorrect" });
+        setTimeout(() => {
+            this.setState({ matchFeedbackClassName: "" })
+        }, 500);
+
+    }
+
+    resetGame() {
+        this.props.startTimer(10);
+        this.setState({ score: 0 });
+        this.setState({ size: 4 });
+        this.props.setLevel1();
+    }
+
+
 
     increment() {
         this.setState({ score: this.state.score + 1 });
@@ -143,7 +161,7 @@ class ColorGame extends React.Component {
         //updated properly.
     }
 
-    levelUp() {
+    sizeUp() {
         if (this.state.score === 3) {
             this.setState({ size: 9 });
         } else if (this.state.score === 8) {
@@ -154,16 +172,16 @@ class ColorGame extends React.Component {
 
     }
 
-    levelMode() {
+    setCircleSize() {
         if (this.state.score < 3) {
-            this.props.level1();
+            this.props.setLevel1();
         } else if (this.state.score >= 13) {
-            this.props.level4();
+            this.props.setLevel4();
         } else if (this.state.score >= 8) {
-            this.props.level3();
+            this.props.setLevel3();
         }
         else if (this.state.score >= 3) {
-            this.props.level2();
+            this.props.setLevel2();
         }
 
     }
@@ -175,28 +193,29 @@ class ColorGame extends React.Component {
 
 
     //reset timer
-    // click to make gameStarted to false, and timeLeft back to 30
+    // click to make isGameStarted to false, and timeLeft back to 30
 
     // ====== LIFE CYCLE METHODS =====================
 
     componentDidUpdate() {
         // console.log('Time left in component update', this.props.timer.timeLeft)
         if (this.props.timer.timeLeft < 0.5) {
-            // console.log('game started component update', this.state.gameStarted)
+            // console.log('game started component update', this.state.isGameStarted)
             clearInterval(this.props.timer.timerId);
-            if (this.props.game.gameStarted === true) {
-                this.props.stopGame();
+            if (this.props.game.isGameStarted === true) {
+                this.props.setStopGame();
             }
         }
 
     }
 
 
+
     render() {
 
         return (
             <div className="container">
-                <h1>
+                <h1 className="title">
                     <span style={{ color: '#FF9AA2' }}>B</span>
                     <span style={{ color: '#FFB7B2' }}>U</span>
                     <span style={{ color: '#FFDAC1' }}>B</span>
@@ -214,17 +233,20 @@ class ColorGame extends React.Component {
                 </div>
 
 
-                <button className='startbtn' onClick={this.pickColorPair} disabled={this.props.game.gameStarted}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>
+                <button className='startbtn' onClick={this.startGame} disabled={this.props.game.isGameStarted}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>
 
-                <p className={this.state.wrongClassName}>
-                    {this.state.wrongClassName === "incorrect" ? "TRY AGAIN! -.5 SEC" : "ADD TIME +.5 SEC!"}</p>
+                <p className={this.state.matchFeedbackClassName}>
+                    {this.state.matchFeedbackClassName === "incorrect" ? "TRY AGAIN! -.5 SEC" : "ADD TIME +.5 SEC!"}</p>
 
                 <Gameboard
                     colors={this.state.colors}
                     isMatch={this.isMatch}
                     score={this.state.score}
                 />
-
+                <GameOverModal
+                    startGame={this.startGame}
+                    score={this.state.score}
+                />
             </div >
         );
     };
@@ -240,7 +262,12 @@ const mapStateToProps = (state) => {
 
 
 const matchDispatchToProps = (dispatch) => {
-    return bindActionCreators({ startTimer: startTimer, setTimerId: setTimerId, addTime: addTime, subTime: subTime, startGame: startGame, stopGame: stopGame, level1: level1, level2: level2, level3: level3, level4: level4 }, dispatch)
+    return bindActionCreators({
+        startTimer: startTimer, setTimerId: setTimerId,
+        addTime: addTime, subtractTime: subtractTime,
+        setStartGame: setStartGame, setStopGame: setStopGame,
+        setLevel1: setLevel1, setLevel2: setLevel2, setLevel3: setLevel3, setLevel4: setLevel4
+    }, dispatch)
 }
 
 // because we set matchdispatchtoprops here, we cannot do this.props.dispatch, we need to just set all actions used above instead.

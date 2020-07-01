@@ -10,13 +10,13 @@ const incorrectAudio = new Howl({
     src: [incorrectChime]
 });
 
-const correctPlay = () => {
+const correctPlaySound = () => {
     correctAudio.play();
 }
 
-const incorrectPlay = () => {
+const incorrectPlaySound = () => {
     incorrectAudio.play();
 }
 
-export { correctPlay, incorrectPlay };
+export { correctPlaySound, incorrectPlaySound };
 

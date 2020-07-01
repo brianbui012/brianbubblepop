@@ -21,7 +21,7 @@
 }
 
 
-h1 {
+.title {
     font-family: 'Bubblepop';
     font-size: 10rem;
     margin: 3rem 0 2rem 0;
@@ -81,29 +81,33 @@ button {
     font-size: 2.6rem;
     letter-spacing: 1.1px;
     color: white;
-    margin: 3rem 0 0 0;
+    margin-top: 3rem;
     border-radius: 10px;
     border-width: 2px 4px;
     width: 11rem;
     height: 7rem;
 }
 
-.colorCircle-level1 {
+.startbtn:disabled {
+    opacity: 0;
+}
+
+.circleSize-level1 {
     width: 21rem;
     height: 21rem;
 }
 
-.colorCircle-level2 {
+.circleSize-level2 {
     width: 14rem;
     height: 14rem;
 }
 
-.colorCircle-level3 {
+.circleSize-level3 {
     width: 10.5rem;
     height: 10.5rem;
 }
 
-.colorCircle-level4 {
+.circleSize-level4 {
     width: 8.3rem;
     height: 8.3rem;
 }
@@ -217,7 +221,7 @@ p {
         height: 80vh;
     }
 
-    h1 {
+    .title {
         margin: 1rem 0 0 0;
         font-size: 5rem;
     }
@@ -235,6 +239,13 @@ p {
         height: 4rem;
     }
 
+    .modal__startbtn {
+        display: block;
+        margin: auto;
+        padding: 4rem 0;
+        height: 6rem;
+    }
+
     .gameboard {
         width: 30rem;
         margin: 0;
@@ -246,25 +257,78 @@ p {
     }
 
 
-    .colorCircle-level1 {
+    .circleSize-level1 {
         width: 14.5rem;
         height: 14.5rem;
     }
 
-    .colorCircle-level2 {
+    .circleSize-level2 {
         width: 9.5rem;
         height: 9.5rem;
     }
 
-    .colorCircle-level3 {
+    .circleSize-level3 {
         width: 7.2rem;
         height: 7.2rem;
     }
 
-    .colorCircle-level4 {
+    .circleSize-level4 {
         width: 5.8rem;
         height: 5.8rem;
     }
 
 
+}
+
+
+//REACT MODAL ===============================================
+
+.ReactModalPortal>div {
+    opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    transition: opacity 200ms ease-in-out;
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.modal {
+    background: #001226;
+    color: white;
+    font-size: 3.2rem;
+    max-width: 35rem;
+    outline: none;
+    padding: 5rem 4rem 6.5rem 4rem;
+    border: solid white 2px;
+}
+
+.modal__score {
+    font-family: 'FredokaOne';
+    text-align: center;
+    margin: 2rem 0;
+
+}
+
+.modal__startbtn {
+    display: block;
+    margin: auto;
+    padding: 2rem 0;
+}
+
+.title--gameover {
+    font-size: 7rem;
+    font-family: 'Bubblepop';
+    margin: 2rem auto;
+    text-align: center;
 }
