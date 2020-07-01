@@ -6,6 +6,7 @@ import { startTimer, setTimerId, addTime, subtractTime } from '../actions/timer'
 import { setStartGame, setStopGame, setLevel1, setLevel2, setLevel3, setLevel4 } from '../actions/game';
 import { bindActionCreators } from 'redux';
 import GameOverModal from './GameOverModal';
+import { Animated } from "react-animated-css";
 
 
 class ColorGame extends React.Component {
@@ -215,18 +216,20 @@ class ColorGame extends React.Component {
 
         return (
             <div className="container">
-                <h1 className="title">
-                    <span style={{ color: '#FF9AA2' }}>B</span>
-                    <span style={{ color: '#FFB7B2' }}>U</span>
-                    <span style={{ color: '#FFDAC1' }}>B</span>
-                    <span style={{ color: '#E2F0CB' }}>B</span>
-                    <span style={{ color: '#B5EAD7' }}>L</span>
-                    <span style={{ color: '#C7CEEA' }}>E </span>
+                <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
+                    <h1 className="title">
+                        <span style={{ color: '#FF9AA2' }}>B</span>
+                        <span style={{ color: '#FFB7B2' }}>U</span>
+                        <span style={{ color: '#FFDAC1' }}>B</span>
+                        <span style={{ color: '#E2F0CB' }}>B</span>
+                        <span style={{ color: '#B5EAD7' }}>L</span>
+                        <span style={{ color: '#C7CEEA' }}>E </span>
 
-                    <span style={{ color: '#FF9AA2' }}>P</span>
-                    <span style={{ color: '#C7CEEA' }}>O</span>
-                    <span style={{ color: '#E0FEFE' }}>P</span>
-                </h1>
+                        <span style={{ color: '#FF9AA2' }}>P</span>
+                        <span style={{ color: '#C7CEEA' }}>O</span>
+                        <span style={{ color: '#E0FEFE' }}>P</span>
+                    </h1>
+                </Animated>
                 <div className="scoreTime">
                     <h3>TIME : <span>{this.props.timer.timeLeft}</span></h3>
                     <h3>SCORE : <span>{this.state.score}</span> </h3>
