@@ -145,7 +145,7 @@ class ColorGame extends React.Component {
     }
 
     resetGame() {
-        this.props.startTimer(10);
+        this.props.startTimer(25);
         this.setState({ score: 0 });
         this.setState({ size: 4 });
         this.props.setLevel1();
