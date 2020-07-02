@@ -73,6 +73,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    margin: auto;
 }
 
 .startbtn {
@@ -130,7 +131,7 @@ button {
     }
 }
 
-p {
+.feedbackClass {
     opacity: 0;
     font-size: 5rem;
     margin: 3rem 0 4rem 0;
@@ -205,80 +206,6 @@ p {
     justify-content: space-between;
 }
 
-@media (max-width: 480px) {
-
-    #app {
-        display: block;
-        margin: auto;
-        width: 30rem;
-        height: 80vh;
-        text-align: center;
-    }
-
-    .container {
-        padding: 1rem;
-        width: 30rem;
-        height: 80vh;
-    }
-
-    .title {
-        margin: 1rem 0 .5rem 0;
-        font-size: 6rem;
-    }
-
-    h3 {
-        font-size: 2rem;
-        margin: 1rem 0 0 0;
-    }
-
-    .startbtn {
-        display: block;
-        margin: 12rem auto;
-        font-size: 2rem;
-        width: 8rem;
-        height: 4rem;
-    }
-
-    .modal__startbtn {
-        display: block;
-        margin: auto;
-        padding: 4rem 0;
-        height: 6rem;
-    }
-
-    .gameboard {
-        width: 30rem;
-        margin: 0;
-    }
-
-    p {
-        margin: 2rem 0;
-        font-size: 2.5rem;
-    }
-
-
-    .circleSize-level1 {
-        width: 14.5rem;
-        height: 14.5rem;
-    }
-
-    .circleSize-level2 {
-        width: 9.5rem;
-        height: 9.5rem;
-    }
-
-    .circleSize-level3 {
-        width: 7.2rem;
-        height: 7.2rem;
-    }
-
-    .circleSize-level4 {
-        width: 5.8rem;
-        height: 5.8rem;
-    }
-
-
-}
 
 
 //REACT MODAL ===============================================
@@ -331,4 +258,145 @@ p {
     font-family: 'Bubblepop';
     margin: 2rem auto;
     text-align: center;
+}
+
+.title--howtoplay {
+
+    font-size: 4rem;
+    font-family: 'Bubblepop';
+    margin: auto;
+    margin-bottom: 2rem;
+    text-align: center;
+    display: inline-block;
+    width: 25rem;
+}
+
+.modal--howtoplay {
+    padding: 2rem;
+    background: #001226;
+    color: white;
+    font-size: 3.2rem;
+    max-width: 35rem;
+    height: 45rem;
+    outline: none;
+    border: solid white 2px;
+}
+
+
+.header--howtoplay {
+    display: flex;
+}
+
+.paragraph--howtoplay {
+    font-size: 2.2rem;
+    font-family: 'Helvetica';
+    margin-bottom: 2rem;
+}
+
+.button--howtoplay {
+    background-color: transparent;
+    color: white;
+}
+
+.htpbutton {
+    display: block;
+    background-color: #ff3a2f;
+    font-family: 'FredokaOne';
+    font-size: 2.4rem;
+    letter-spacing: 1.1px;
+    color: white;
+    margin-top: 3rem;
+    border-radius: 10px;
+    border-width: 2px 4px;
+    width: 11rem;
+    height: 7rem;
+}
+
+@media (max-width: 480px) {
+
+    #app {
+        display: block;
+        margin: auto;
+        width: 30rem;
+        height: 80vh;
+        text-align: center;
+    }
+
+    .container {
+        padding: 1rem;
+        width: 30rem;
+        height: 80vh;
+    }
+
+    .title {
+        margin: 1rem 0 .5rem 0;
+        font-size: 6rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+        margin: 1rem 0 0 0;
+    }
+
+    .startbtn {
+        display: block;
+        margin: 12rem auto 3rem auto;
+        font-size: 2rem;
+        width: 8rem;
+        height: 4rem;
+    }
+
+    .htpbutton {
+        display: block;
+        background-color: #ff3a2f;
+        font-family: 'FredokaOne';
+        font-size: 1.7rem;
+        letter-spacing: 1.1px;
+        color: white;
+        margin-top: 1rem;
+        border-radius: 10px;
+        border-width: 2px 4px;
+        width: 8rem;
+        height: 5rem;
+    }
+
+    .modal__startbtn {
+        display: block;
+        margin: auto;
+        padding: 2rem 0;
+        height: 6rem;
+    }
+
+    .gameboard {
+        width: 30rem;
+        margin: 0;
+    }
+
+    .feedbackClass {
+        margin: 2rem 0;
+        font-size: 2.5rem;
+    }
+
+
+    .circleSize-level1 {
+        width: 14.5rem;
+        height: 14.5rem;
+    }
+
+    .circleSize-level2 {
+        width: 9.5rem;
+        height: 9.5rem;
+    }
+
+    .circleSize-level3 {
+        width: 7.2rem;
+        height: 7.2rem;
+    }
+
+    .circleSize-level4 {
+        width: 5.8rem;
+        height: 5.8rem;
+    }
+
+
 }

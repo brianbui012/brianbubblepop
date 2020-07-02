@@ -1,11 +1,12 @@
 import React from 'react';
 import Gameboard from './Gameboard';
+import GameOverModal from './GameOverModal';
+import HowToPlayModal from './HowToPlayModal';
 import { correctPlaySound, incorrectPlaySound, startGameSound } from '../components/sounds.js';
 import { connect } from 'react-redux';
 import { startTimer, setTimerId, addTime, subtractTime } from '../actions/timer';
 import { setStartGame, setStopGame, setLevel1, setLevel2, setLevel3, setLevel4 } from '../actions/game';
 import { bindActionCreators } from 'redux';
-import GameOverModal from './GameOverModal';
 import { Animated } from "react-animated-css";
 
 
@@ -44,14 +45,17 @@ class ColorGame extends React.Component {
         this.resetGame = this.resetGame.bind(this);
         this.correctPick = this.correctPick.bind(this);
         this.incorrectPick = this.incorrectPick.bind(this);
+        this.openHowToPlayModal = this.openHowToPlayModal.bind(this);
+        this.closeHowToPlayModal = this.closeHowToPlayModal.bind(this);
 
         this.state = {
             colors: [],
             score: 0,
             colorPair: [],
             size: 4,
-            matchFeedbackClassName: "",
+            matchFeedbackClassName: "feedbackClass",
             initialStart: true,
+            howToPlayModal: false,
         }
     }
 
@@ -133,9 +137,9 @@ class ColorGame extends React.Component {
         this.setCircleSize();
         this.startGame();
 
-        this.setState({ matchFeedbackClassName: "correct" });
+        this.setState({ matchFeedbackClassName: "correct feedbackClass" });
         setTimeout(() => {
-            this.setState({ matchFeedbackClassName: "" })
+            this.setState({ matchFeedbackClassName: "feedbackClass" })
         }, 500);
 
     }
@@ -143,15 +147,15 @@ class ColorGame extends React.Component {
     incorrectPick() {
         incorrectPlaySound();
         this.props.subtractTime();
-        this.setState({ matchFeedbackClassName: "incorrect" });
+        this.setState({ matchFeedbackClassName: "incorrect feedbackClass" });
         setTimeout(() => {
-            this.setState({ matchFeedbackClassName: "" })
+            this.setState({ matchFeedbackClassName: "feedbackClass" })
         }, 500);
 
     }
 
     resetGame() {
-        this.props.startTimer(20);
+        this.props.startTimer(25);
         this.setState({ score: 0 });
         this.setState({ size: 4 });
         this.props.setLevel1();
@@ -196,6 +200,14 @@ class ColorGame extends React.Component {
     countDown() {
         const stopId = setInterval(() => this.props.startTimer(this.props.timer.timeLeft - .5), 500);
         this.props.setTimerId(stopId);
+    }
+
+    openHowToPlayModal() {
+        this.setState({ howToPlayModal: true });
+    }
+
+    closeHowToPlayModal() {
+        this.setState({ howToPlayModal: false });
     }
 
 
@@ -244,6 +256,14 @@ class ColorGame extends React.Component {
 
                 {this.state.initialStart && <button className='startbtn' onClick={this.startGame}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>}
 
+                {this.state.initialStart && <button className='htpbutton' onClick={this.openHowToPlayModal}>How To Play</button>}
+
+                {this.state.howToPlayModal &&
+                    <HowToPlayModal
+                        howToPlayModal={this.state.howToPlayModal}
+                        closeHowToPlayModal={this.closeHowToPlayModal}
+                    />}
+
                 <p className={this.state.matchFeedbackClassName}>
                     {this.state.matchFeedbackClassName === "incorrect" ? "TRY AGAIN! -.5 SEC" : "ADD TIME +.5 SEC!"}</p>
 
@@ -256,6 +276,7 @@ class ColorGame extends React.Component {
                     startGame={this.startGame}
                     score={this.state.score}
                 />
+
             </div >
         );
     };

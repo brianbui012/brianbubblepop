@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const User = require('../database/User');
+const User = require('../backend/models/User');
 const route = express.Router();
 
 route.post('/', async (req, res) => {
