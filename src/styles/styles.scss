@@ -250,7 +250,7 @@ button {
 .modal__startbtn {
     display: block;
     margin: auto;
-    padding: 2rem 0;
+    padding: 1rem 0 4rem 0;
 }
 
 .title--gameover {
@@ -363,9 +363,10 @@ button {
     .modal__startbtn {
         display: block;
         margin: auto;
-        padding: 2rem 0;
-        height: 6rem;
+        padding: 1rem 0;
+        height: 4.5rem;
     }
+
 
     .gameboard {
         width: 30rem;
