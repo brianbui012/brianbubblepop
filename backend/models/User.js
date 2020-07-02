@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema({
     score: {
         type: Number,
     },
-    timestamp: true,
 });
 
 const User = mongoose.model('User', userSchema);

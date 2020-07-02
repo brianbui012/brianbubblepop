@@ -1,5 +1,5 @@
 const path = require('path');
-const connectDB = require('../database/connnection');
+const connectDB = require('../backend/connnection');
 const express = require('express');
 const app = express();
 const cors = require('cors');

@@ -82,11 +82,11 @@ button {
     font-size: 2.6rem;
     letter-spacing: 1.1px;
     color: white;
-    margin-top: 12rem;
     border-radius: 10px;
     border-width: 2px 4px;
     width: 11rem;
-    height: 7rem;
+    height: 5rem;
+    margin-top: 2.5rem;
 }
 
 .startbtn:disabled {
@@ -305,7 +305,7 @@ button {
     font-size: 2.4rem;
     letter-spacing: 1.1px;
     color: white;
-    margin-top: 3rem;
+    margin: 15rem auto 0 auto;
     border-radius: 10px;
     border-width: 2px 4px;
     width: 11rem;
@@ -340,7 +340,7 @@ button {
 
     .startbtn {
         display: block;
-        margin: 12rem auto 3rem auto;
+        margin-top: 2rem;
         font-size: 2rem;
         width: 8rem;
         height: 4rem;
@@ -353,7 +353,7 @@ button {
         font-size: 1.7rem;
         letter-spacing: 1.1px;
         color: white;
-        margin-top: 1rem;
+        margin: 6rem auto 2rem auto;
         border-radius: 10px;
         border-width: 2px 4px;
         width: 8rem;

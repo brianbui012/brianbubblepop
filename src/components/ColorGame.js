@@ -155,7 +155,7 @@ class ColorGame extends React.Component {
     }
 
     resetGame() {
-        this.props.startTimer(25);
+        this.props.startTimer(20);
         this.setState({ score: 0 });
         this.setState({ size: 4 });
         this.props.setLevel1();
@@ -253,10 +253,10 @@ class ColorGame extends React.Component {
                     <h3>SCORE : <span>{this.state.score}</span> </h3>
                 </div>
 
+                {this.state.initialStart && <button className='htpbutton' onClick={this.openHowToPlayModal}>How To Play</button>}
 
                 {this.state.initialStart && <button className='startbtn' onClick={this.startGame}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>}
 
-                {this.state.initialStart && <button className='htpbutton' onClick={this.openHowToPlayModal}>How To Play</button>}
 
                 {this.state.howToPlayModal &&
                     <HowToPlayModal
