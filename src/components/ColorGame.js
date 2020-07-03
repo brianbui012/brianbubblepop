@@ -337,8 +337,8 @@ class ColorGame extends React.Component {
                     </h1>
                 </Animated>
                 <div className="scoreTime">
-                    <h3>TIME : <span>{this.props.timer.timeLeft}</span></h3>
-                    <h3>SCORE : <span>{this.state.score}</span> </h3>
+                    <h3>TIME: <span>{this.props.timer.timeLeft}</span></h3>
+                    <h3>SCORE: <span>{this.state.score}</span> </h3>
                 </div>
 
                 {this.state.initialStart && <button className='htpbutton' onClick={this.openHowToPlayModal}>How To Play</button>}
