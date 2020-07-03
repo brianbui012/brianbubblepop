@@ -63,6 +63,7 @@ class ColorGame extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.compare = this.compare.bind(this);
         this.closeTop5Modal = this.closeTop5Modal.bind(this);
+        this.updateTop5List = this.updateTop5List.bind(this);
 
         this.state = {
             colors: [],
@@ -84,6 +85,7 @@ class ColorGame extends React.Component {
         if (this.state.initialStart === true) {
             startGameSound();
         }
+        this.updateTop5List();
         this.setState({ setTop5Modal: true })
         this.setState({ initialStart: false });
         this.loadColor();
@@ -248,17 +250,30 @@ class ColorGame extends React.Component {
             username: e.target.username.value,
             score: this.state.score
         }
+        //'https://brianbubblegame.herokuapp.com/users/add'
         //LOCAL : axios.post('http://localhost:3000/users/add)
-        axios.post('https://brianbubblegame.herokuapp.com/users/add', user)
-            .then(res => console.log(res.data));
+        axios.post('/users/add', user)
+            .then(res => console.log("axios post", res.data));
 
+    }
 
+    updateTop5List() {
+        //Get Updated database
+        //axios.get('https://brianbubblegame.herokuapp.com/users')
+        //LOCAL : axios.get('http://localhost:3000/users')
+        axios.get('/users')
+            .then(response => {
+                if (response.data.length > 0) {
+                    const sortedPlayers = response.data.sort(this.compare);
+                    this.setState({ top5Players: sortedPlayers.slice(0, 5) }, () => {
+                        this.setState({ fifthScore: this.state.top5Players[4].score })
+                    })
+                }
 
-        // console.log(e.target.username.value);
+            })
     }
 
     closeTop5Modal() {
-        console.log("We are inside the function")
         this.setState({ setTop5Modal: false })
     }
 
@@ -282,20 +297,7 @@ class ColorGame extends React.Component {
     }
 
     componentDidMount() {
-        //LOCAL : axios.get('http://localhost:3000/users')
-        axios.get('https://brianbubblegame.herokuapp.com/users')
-            .then(response => {
-                if (response.data.length > 0) {
-                    const sortedPlayers = response.data.sort(this.compare);
-                    this.setState({ top5Players: sortedPlayers.slice(0, 5) }, () => {
-                        this.setState({ fifthScore: this.state.top5Players[4].score })
-                    })
-                }
-
-            })
-
-        console.log(this.state.top5Players);
-
+        this.updateTop5List();
     }
 
 
