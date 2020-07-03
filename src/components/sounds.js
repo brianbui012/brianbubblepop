@@ -5,17 +5,17 @@ import correctChime from '../sounds/correct_chime.mp3';
 
 const startGameAudio = new Howl({
     src: [startChime],
-    volume: 0.5
+    volume: 0.35
 });
 
 const correctAudio = new Howl({
     src: [correctChime],
-    volume: 0.5
+    volume: 0.35
 });
 
 const incorrectAudio = new Howl({
     src: [incorrectChime],
-    volume: 0.5
+    volume: 0.35
 });
 
 
