@@ -80,13 +80,13 @@ button {
 .startbtn {
     background-color: #4CAF50;
     font-family: 'FredokaOne';
-    font-size: 2.6rem;
+    font-size: 4.2rem;
     letter-spacing: 1.1px;
     color: white;
     border-radius: 10px;
     border-width: 2px 4px;
-    width: 11rem;
-    height: 5rem;
+    width: 14rem;
+    height: 6.5rem;
     margin-top: 2rem;
 }
 
@@ -237,7 +237,7 @@ button {
     font-size: 3.2rem;
     max-width: 35rem;
     outline: none;
-    padding: 5rem 1.5rem 6.5rem 1rem;
+    padding: 3.5rem 2.5rem 3.5rem 2rem;
     border: solid white 2px;
 }
 
@@ -245,17 +245,25 @@ button {
     font-family: 'FredokaOne';
     text-align: center;
     margin: 2rem 0;
-
+    letter-spacing: 1px;
 }
 
 .modal__startbtn {
+    background-color: #4CAF50;
+    font-size: 2.5rem;
+    letter-spacing: 1.1px;
+    color: white;
+    border-radius: 10px;
+    border-width: 2px 4px;
+    width: 11rem;
+    margin-top: 2rem;
     display: block;
     margin: auto;
     padding: 1rem 0 4rem 0;
 }
 
 .title--gameover {
-    font-size: 7rem;
+    font-size: 7.5rem;
     font-family: 'Bubblepop';
     margin: 2rem auto;
     text-align: center;
@@ -297,6 +305,9 @@ button {
     height: 5rem;
     margin: auto;
     display: block;
+    width: 10.5rem;
+    height: 4.5rem;
+    font-size: 2.5rem;
 }
 
 .header--howtoplay {
@@ -325,12 +336,12 @@ button {
     border-radius: 10px;
     border-width: 2px 4px;
     width: 11rem;
-    height: 7rem;
+    height: 6.5rem;
 }
 
 .usernameInput {
     width: 11.5rem;
-    margin: 2rem auto 1.5rem auto;
+    margin: 2rem auto 2rem auto;
     outline: none;
     display: block;
     background-color: transparent;
@@ -384,9 +395,9 @@ button {
     .startbtn {
         display: block;
         margin-top: 2rem;
-        font-size: 2rem;
-        width: 8rem;
-        height: 4rem;
+        font-size: 2.8rem;
+        width: 10rem;
+        height: 5.5rem;
     }
 
     .htpbutton {
@@ -407,7 +418,7 @@ button {
         display: block;
         margin: auto;
         padding: 1rem 0;
-        height: 4.5rem;
+        height: 5rem;
     }
 
 
@@ -443,7 +454,7 @@ button {
     }
 
     .button--top5modal {
-        height: 6rem;
+        height: 5rem;
         margin: auto;
         display: block;
     }

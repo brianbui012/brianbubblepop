@@ -23,8 +23,13 @@ const GameOverModal = (props) => (
             <span style={{ color: '#C7CEEA' }}>R</span>
             <span style={{ color: '#E0FEFE' }}>!</span>
         </h1>
-        <h4 className="modal__score">SCORE : {props.score}</h4>
-        <button className="startbtn modal__startbtn" onClick={props.startGame}>Replay</button>
+        <h4 className="modal__score">Top 5 Players</h4>
+        <ol>
+            {props.top5Players.map((player => <li className="list--top5modal" key={player._id}>{player.username} - {player.score}</li>))}
+        </ol>
+
+        <h4 className="modal__score">Your Score: {props.score}</h4>
+        <button className="modal__startbtn" onClick={props.startGame}>Replay</button>
     </Modal>
 );
 

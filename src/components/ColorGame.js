@@ -365,6 +365,7 @@ class ColorGame extends React.Component {
                     <GameOverModal
                         startGame={this.startGame}
                         score={this.state.score}
+                        top5Players={this.state.top5Players}
                     />}
 
                 {this.state.score > this.state.fifthScore &&
