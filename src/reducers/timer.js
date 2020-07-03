@@ -1,6 +1,6 @@
 //STATE =========================================================
 const timerReducerDefaultState = {
-    timeLeft: 20,
+    timeLeft: 10,
     timerId: undefined
 };
 

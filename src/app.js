@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import ColorGame from './components/ColorGame';
+import Top5Modal from './components/Top5Modal';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import timerReducer from './reducers/timer';
+import { BrowserRouter, Route } from "react-router-dom";
+// import { createStore } from 'redux';
+// import timerReducer from './reducers/timer';
 import configureStore from './store/configureStore';
 // import { correctPlay, incorrectPlay } from './components/sounds.js';
 // import Timer from './components/timer';
@@ -21,7 +23,9 @@ const state = store.getState();
 
 const jsx = (
     <Provider store={store}>
-        <ColorGame />
+        <BrowserRouter>
+            <Route path="/" exact component={ColorGame} />
+        </BrowserRouter>
     </Provider>
 );
 

@@ -16,8 +16,14 @@ app.use(express.static(publicPath));
 
 connectDB();
 
+// if (process.env.NODE_ENV === 'production'){
+//     app.use(express.static('node_'))
+// }
 
-app.use('/API/userModel', require('../API/User'))
+
+const usersRouter = require('../backend/routes/User')
+app.use('/users', usersRouter);
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(publicPath, 'index.html'));
 });

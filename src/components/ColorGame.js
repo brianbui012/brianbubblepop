@@ -1,14 +1,24 @@
 import React from 'react';
+
 import Gameboard from './Gameboard';
 import GameOverModal from './GameOverModal';
 import HowToPlayModal from './HowToPlayModal';
+import Top5Modal from './Top5Modal';
+
 import { correctPlaySound, incorrectPlaySound, startGameSound } from '../components/sounds.js';
 import { connect } from 'react-redux';
 import { startTimer, setTimerId, addTime, subtractTime } from '../actions/timer';
 import { setStartGame, setStopGame, setLevel1, setLevel2, setLevel3, setLevel4 } from '../actions/game';
 import { bindActionCreators } from 'redux';
 import { Animated } from "react-animated-css";
+import axios from 'axios';
+//need axios because to render the top5modal, we need to know the top 5 scores.
+// on mount we can mount the top 5 scores at the time, then if the highest score beats any of the top
 
+//maybe everytime we mount the main colorgame component , we update the top5array
+//when we unmount the top5modal, we update the top 5 array with the new winner player in the new top 5 array
+
+//componentDidMount ? (color game) // componentwillunmount(top5modal)
 
 class ColorGame extends React.Component {
     constructor(props) {
@@ -48,6 +58,12 @@ class ColorGame extends React.Component {
         this.openHowToPlayModal = this.openHowToPlayModal.bind(this);
         this.closeHowToPlayModal = this.closeHowToPlayModal.bind(this);
 
+        //Methods for Top 5 Modal ===================================
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.compare = this.compare.bind(this);
+        this.closeTop5Modal = this.closeTop5Modal.bind(this);
+
         this.state = {
             colors: [],
             score: 0,
@@ -56,6 +72,10 @@ class ColorGame extends React.Component {
             matchFeedbackClassName: "feedbackClass",
             initialStart: true,
             howToPlayModal: false,
+            setTop5Modal: true,
+            top5Players: [],
+            fifthScore: '',
+            username: ''
         }
     }
 
@@ -64,6 +84,7 @@ class ColorGame extends React.Component {
         if (this.state.initialStart === true) {
             startGameSound();
         }
+        this.setState({ setTop5Modal: true })
         this.setState({ initialStart: false });
         this.loadColor();
         if (this.props.game.isGameStarted === false) {
@@ -211,10 +232,71 @@ class ColorGame extends React.Component {
     }
 
 
+
+    //Top 5 Modal Methods ================================================
+
+    onChangeUsername(e) {
+        this.setState({ username: e.target.value.toUpperCase() })
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        this.closeTop5Modal();
+        this.setState({ username: e.target.username.value })
+
+        const user = {
+            username: e.target.username.value,
+            score: this.state.score
+        }
+
+        axios.post('/users/add', user)
+            .then(res => console.log(res.data));
+
+
+
+        // console.log(e.target.username.value);
+    }
+
+    closeTop5Modal() {
+        console.log("We are inside the function")
+        this.setState({ setTop5Modal: false })
+    }
+
+
     //reset timer
     // click to make isGameStarted to false, and timeLeft back to 30
 
     // ====== LIFE CYCLE METHODS =====================
+
+    compare(a, b) {
+        const playerA = a.score;
+        const playerB = b.score;
+
+        let comparison = 0;
+        if (playerA > playerB) {
+            comparison = -1;
+        } else if (playerA < playerB) {
+            comparison = 1;
+        }
+        return comparison;
+    }
+
+    componentDidMount() {
+        axios.get('/users')
+            .then(response => {
+                if (response.data.length > 0) {
+                    const sortedPlayers = response.data.sort(this.compare);
+                    this.setState({ top5Players: sortedPlayers.slice(0, 5) }, () => {
+                        this.setState({ fifthScore: this.state.top5Players[4].score })
+                    })
+                }
+
+            })
+
+        console.log(this.state.top5Players);
+
+    }
+
 
     componentDidUpdate() {
         // console.log('Time left in component update', this.props.timer.timeLeft)
@@ -255,7 +337,7 @@ class ColorGame extends React.Component {
 
                 {this.state.initialStart && <button className='htpbutton' onClick={this.openHowToPlayModal}>How To Play</button>}
 
-                {this.state.initialStart && <button className='startbtn' onClick={this.startGame}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>}
+                {<button className='startbtn' disabled={this.props.game.isGameStarted} onClick={this.startGame}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>}
 
 
                 {this.state.howToPlayModal &&
@@ -272,12 +354,26 @@ class ColorGame extends React.Component {
                     isMatch={this.isMatch}
                     score={this.state.score}
                 />
-                <GameOverModal
-                    startGame={this.startGame}
-                    score={this.state.score}
-                />
+                {this.state.score <= this.state.fifthScore &&
+                    this.state.setTop5Modal &&
+                    <GameOverModal
+                        startGame={this.startGame}
+                        score={this.state.score}
+                    />}
 
-            </div >
+                {this.state.score > this.state.fifthScore &&
+                    this.state.setTop5Modal &&
+                    !(this.props.game.isGameStarted) &&
+                    <Top5Modal
+                        onChangeUsername={this.onChangeUsername}
+                        onSubmit={this.onSubmit}
+                        username={this.state.username}
+                        top5Players={this.state.top5Players}
+                        score={this.state.score}
+                        closeTop5Modal={this.closeTop5Modal}
+                    />}
+
+            </div>
         );
     };
 }
