@@ -87,7 +87,7 @@ button {
     border-width: 2px 4px;
     width: 11rem;
     height: 5rem;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 }
 
 .startbtn:disabled {
@@ -135,7 +135,7 @@ button {
 .feedbackClass {
     opacity: 0;
     font-size: 5rem;
-    margin: 1rem 0 2rem 0;
+    margin: 0 0 2rem 0;
 }
 
 .incorrect {
@@ -417,7 +417,7 @@ button {
     }
 
     .feedbackClass {
-        margin: 2rem 0;
+        margin: 0 auto 1rem auto;
         font-size: 2.5rem;
     }
 
