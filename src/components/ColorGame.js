@@ -248,8 +248,8 @@ class ColorGame extends React.Component {
             username: e.target.username.value,
             score: this.state.score
         }
-
-        axios.post('/users/add', user)
+        //LOCAL : axios.get('http://localhost:3000/add')
+        axios.post('https://brianbubblegame.herokuapp.com/add', user)
             .then(res => console.log(res.data));
 
 
@@ -282,7 +282,8 @@ class ColorGame extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/users')
+        //LOCAL : axios.get('http://localhost:3000/users')
+        axios.get('https://brianbubblegame.herokuapp.com/users')
             .then(response => {
                 if (response.data.length > 0) {
                     const sortedPlayers = response.data.sort(this.compare);
