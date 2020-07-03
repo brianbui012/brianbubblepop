@@ -248,8 +248,8 @@ class ColorGame extends React.Component {
             username: e.target.username.value,
             score: this.state.score
         }
-        //LOCAL : axios.get('http://localhost:3000/add')
-        axios.post('https://brianbubblegame.herokuapp.com/add', user)
+        //LOCAL : axios.post('http://localhost:3000/users/add)
+        axios.post('https://brianbubblegame.herokuapp.com/users/add', user)
             .then(res => console.log(res.data));
 
 
