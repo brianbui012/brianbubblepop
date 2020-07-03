@@ -252,6 +252,7 @@ class ColorGame extends React.Component {
         }
         //'https://brianbubblegame.herokuapp.com/users/add'
         //LOCAL : axios.post('http://localhost:3000/users/add)
+        //we dont need a website http name, we can just use the endings /user/add
         axios.post('/users/add', user)
             .then(res => console.log("axios post", res.data));
 
@@ -261,6 +262,8 @@ class ColorGame extends React.Component {
         //Get Updated database
         //axios.get('https://brianbubblegame.herokuapp.com/users')
         //LOCAL : axios.get('http://localhost:3000/users')
+
+        //we dont need a website http name, we can just use the endings /user
         axios.get('/users')
             .then(response => {
                 if (response.data.length > 0) {

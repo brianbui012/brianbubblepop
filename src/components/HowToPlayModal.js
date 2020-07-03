@@ -29,7 +29,7 @@ const HowToPlayModal = (props) => (
 
         <p className="paragraph--howtoplay">The rules are simple:</p>
 
-        <p className="paragraph--howtoplay">Find the bubble that has a slightly different color.</p>
+        <p className="paragraph--howtoplay">Find the bubble with a slightly different color.</p>
 
         <p className="paragraph--howtoplay">If picked correctly, +.5 seconds will be added to your total time.</p>
 
