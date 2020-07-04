@@ -67,7 +67,7 @@ class ColorGame extends React.Component {
 
         this.state = {
             colors: [],
-            score: 0,
+            score: 22,
             colorPair: [],
             size: 4,
             matchFeedbackClassName: "feedbackClass",
