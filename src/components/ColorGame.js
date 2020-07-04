@@ -25,22 +25,22 @@ class ColorGame extends React.Component {
         super(props);
 
         this.colorSet = [
-            //yellow
+            //lighter yellow - yellow -- difficult
             ["#e8d505", "#d9c704"],
-            //green
-            ["#33a151", "#2e8f48"],
-            //blue
-            ["#2e368f", "#282f7d"],
-            //red
-            ["#873333", "#7a2f2f"],
-            //light red - red
-            ["#9e3c3c", "#873333"],
-            //light blue - blue
-            ["#333b9e", "#2b338c"],
-            //light green - green
+            //dark green - light green- medium / hard - MIGHT CHANGE
+            ["#33a151", "#35ab55"],
+            //light green (50, 153, 78) - green -- medium
             ["#32994e", "#2e8f48"],
-            //light pink - pink
-            ["#d68bd1", '#bd7bb8'],
+            //lightblue - darkblue -- medium
+            ["#2e368f", "#2a3287"],
+            //dark blue - light blue -- medium
+            ["#333b9e", "#3740ad"],
+            //light red - dark red - med / diff but good
+            ["#8c3434", "#802f2f"],
+            //dark red - light red -- diff but good kinda hard
+            ["#9e3c3c", "#a84040"],
+            //light pink - pink --easy / med
+            ["#d68bd1", '#c983c5'],
 
         ];
 
@@ -178,7 +178,7 @@ class ColorGame extends React.Component {
     }
 
     resetGame() {
-        this.props.startTimer(20);
+        this.props.startTimer(25);
         this.setState({ score: 0 });
         this.setState({ size: 4 });
         this.props.setLevel1();
