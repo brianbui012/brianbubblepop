@@ -8,7 +8,7 @@ import Top5Modal from './Top5Modal';
 import { correctPlaySound, incorrectPlaySound, startGameSound } from '../components/sounds.js';
 import { connect } from 'react-redux';
 import { startTimer, setTimerId, addTime, subtractTime } from '../actions/timer';
-import { setStartGame, setStopGame, setLevel1, setLevel2, setLevel3, setLevel4 } from '../actions/game';
+import { setStartGame, setStopGame, setLevel1, setLevel2, setLevel3, setLevel4, setLevel5 } from '../actions/game';
 import { bindActionCreators } from 'redux';
 import { Animated } from "react-animated-css";
 import axios from 'axios';
@@ -202,6 +202,8 @@ class ColorGame extends React.Component {
             this.setState({ size: 16 });
         } else if (this.state.score === 13) {
             this.setState({ size: 25 })
+        } else if (this.state.score === 24) {
+            this.setState({ size: 36 })
         }
 
     }
@@ -209,6 +211,8 @@ class ColorGame extends React.Component {
     setCircleSize() {
         if (this.state.score < 3) {
             this.props.setLevel1();
+        } else if (this.state.score >= 24) {
+            this.props.setLevel5();
         } else if (this.state.score >= 13) {
             this.props.setLevel4();
         } else if (this.state.score >= 8) {
@@ -399,7 +403,7 @@ const matchDispatchToProps = (dispatch) => {
         startTimer: startTimer, setTimerId: setTimerId,
         addTime: addTime, subtractTime: subtractTime,
         setStartGame: setStartGame, setStopGame: setStopGame,
-        setLevel1: setLevel1, setLevel2: setLevel2, setLevel3: setLevel3, setLevel4: setLevel4
+        setLevel1: setLevel1, setLevel2: setLevel2, setLevel3: setLevel3, setLevel4: setLevel4, setLevel5: setLevel5,
     }, dispatch)
 }
 

@@ -21,6 +21,8 @@ const gameReducer = (state = gameReducerDefaultState, action) => {
             return { ...state, level: action.level };
         case 'LEVEL4':
             return { ...state, level: action.level };
+        case 'LEVEL5':
+            return { ...state, level: action.level };
         default:
             return state;
     }

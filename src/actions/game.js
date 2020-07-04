@@ -28,3 +28,8 @@ export const setLevel4 = () => ({
     type: 'LEVEL4',
     level: 'circleSize-level4 circleBtn'
 });
+
+export const setLevel5 = () => ({
+    type: 'LEVEL5',
+    level: 'circleSize-level5 circleBtn'
+});
