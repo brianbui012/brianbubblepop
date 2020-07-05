@@ -35,7 +35,7 @@ class ColorGame extends React.Component {
             ["#2e368f", "#2a3287"],
             //dark blue - light blue -- medium
             ["#333b9e", "#3740ad"],
-            //light red - dark red - med / diff but good
+            //light red - dark red - easy / med
             ["#8c3434", "#802f2f"],
             //dark red - light red -- diff but good kinda hard
             ["#9e3c3c", "#a84040"],
@@ -325,9 +325,9 @@ class ColorGame extends React.Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="main-container">
                 <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true} animationInDuration={1800}>
-                    <h1 className="title">
+                    <h1 className="main-container__title">
                         <span style={{ color: '#FF9AA2' }}>B</span>
                         <span style={{ color: '#FFB7B2' }}>U</span>
                         <span style={{ color: '#FFDAC1' }}>B</span>
@@ -340,14 +340,14 @@ class ColorGame extends React.Component {
                         <span style={{ color: '#E0FEFE' }}>P</span>
                     </h1>
                 </Animated>
-                <div className="scoreTime">
-                    <h3>TIME: <span>{this.props.timer.timeLeft}</span></h3>
-                    <h3>SCORE: <span>{this.state.score}</span> </h3>
+                <div className="main-container__score-time">
+                    <h3 class="main-container__time">TIME: <span>{this.props.timer.timeLeft}</span></h3>
+                    <h3 class="main-container__score">SCORE: <span>{this.state.score}</span> </h3>
                 </div>
 
-                {this.state.initialStart && <button className='htpbutton' onClick={this.openHowToPlayModal}>How To Play</button>}
+                {this.state.initialStart && <button className='main-container__htp-btn' onClick={this.openHowToPlayModal}>How To Play</button>}
 
-                {<button className='startbtn' disabled={this.props.game.isGameStarted} onClick={this.startGame}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>}
+                {<button className='main-container__startbtn' disabled={this.props.game.isGameStarted} onClick={this.startGame}>{this.props.timer.timeLeft === 0 ? "Replay " : "Start"}</button>}
 
 
                 {this.state.howToPlayModal &&

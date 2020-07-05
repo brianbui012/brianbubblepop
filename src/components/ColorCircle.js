@@ -19,6 +19,7 @@ class ColorCircle extends React.Component {
         return (
             <div>
                 <button
+                    className="color-circle"
                     disabled={!this.props.game.isGameStarted}
                     className={this.props.game.level} // we can make levelMode into state in redux, and then when I press replay, we can set the state to colorcircle
                     onClick={this.isMatch}
@@ -28,7 +29,6 @@ class ColorCircle extends React.Component {
         )
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {

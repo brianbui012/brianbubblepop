@@ -7,11 +7,11 @@ const HowToPlayModal = (props) => (
         contentLabel="Selected Option"
         ariaHideApp={false}
         closeTimeoutMS={200}
-        className="modal--howtoplay"
+        className="htp-modal"
         style={{ overlay: { backgroundColor: 'rgba(0, 31, 63, 0.7' } }}
     >
-        <div className="header--howtoplay">
-            <h1 className="title--howtoplay">
+        <div className="htp-modal__header">
+            <h1 className="htp-modal__title">
                 <span style={{ color: '#FF9AA2' }}>H</span>
                 <span style={{ color: '#FFB7B2' }}>O</span>
                 <span style={{ color: '#FFDAC1' }}>W </span>
@@ -23,17 +23,17 @@ const HowToPlayModal = (props) => (
                 <span style={{ color: '#E0FEFE' }}>Y</span>
             </h1>
 
-            <button onClick={props.closeHowToPlayModal} className="button--howtoplay">X</button>
+            <button onClick={props.closeHowToPlayModal} className="htp-modal__btn">X</button>
 
         </div>
 
-        <p className="paragraph--howtoplay">The rules are simple:</p>
+        <p className="htp-modal__paragraph">The rules are simple:</p>
 
-        <p className="paragraph--howtoplay">Find the bubble with a slightly different color.</p>
+        <p className="htp-modal__paragraph">Find the bubble with a slightly different color.</p>
 
-        <p className="paragraph--howtoplay">If picked correctly, +.5 seconds will be added to your total time.</p>
+        <p className="htp-modal__paragraph">If picked correctly, +.5 seconds will be added to your total time.</p>
 
-        <p className="paragraph--howtoplay">Picked incorrectly, -.5 seconds will be deducted from your total time.</p>
+        <p className="htp-modal__paragraph">Picked incorrectly, -.5 seconds will be deducted from your total time.</p>
     </Modal>
 );
 

@@ -8,11 +8,11 @@ const Top5Modal = (props) => (
         contentLabel="Selected Option"
         ariaHideApp={false}
         closeTimeoutMS={200}
-        className="modal--top5"
+        className="top5-modal"
         style={{ overlay: { backgroundColor: 'rgba(0, 31, 63, 0.7' } }}
     >
-        <div className="header--top5modal">
-            <h1 className="title--top5modal">
+        <div>
+            <h1 className="top5-modal__title">
                 <span style={{ color: '#FF9AA2' }}>T</span>
                 <span style={{ color: '#FFB7B2' }}>O</span>
                 <span style={{ color: '#FFDAC1' }}>P </span>
@@ -27,15 +27,14 @@ const Top5Modal = (props) => (
 
 
         </div>
-        <h4 className="score--top5modal">New High Score!</h4>
-        <h5 className="score--top5modal">Score : {props.score}</h5>
+        <h4 className="top5-modal__score">New High Score!</h4>
+        <h5 className="top5-modal__score">Score : {props.score}</h5>
         <ol>
-            {props.top5Players.map((player => <li className="list--top5modal" key={player._id}>{player.username} - {player.score}</li>))}
+            {props.top5Players.map((player => <li className="top5-modal__list" key={player._id}>{player.username} - {player.score}</li>))}
         </ol>
-        <h2>{props.top5Players._id}</h2>
         <form onSubmit={props.onSubmit}>
             <input
-                className="usernameInput"
+                className="top5-modal__input"
                 type="text"
                 value={props.username}
                 onChange={props.onChangeUsername}
@@ -44,7 +43,7 @@ const Top5Modal = (props) => (
                 name="username"
                 placeholder="Initials"
                 required />
-            <button className="startbtn button--top5modal">Submit</button>
+            <button className="top5-modal__submit-btn">Submit</button>
         </form>
 
 

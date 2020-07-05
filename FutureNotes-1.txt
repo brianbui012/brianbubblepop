@@ -1,0 +1,11 @@
+// ===========NOTES =======
+
+
+It's possible to cheat in multiple ways, either by something like this https://pastebin.com/e2UCKMCF or by just sending the POST request with a high number
+
+Isn't it also a little unnecessary to send the scoreboard on each level
+
+That's the thing, you would sort and filter it on the backend
+And only send the axios request once the scoreboard shows
+
+Move the axios request on the backend side ^^^
