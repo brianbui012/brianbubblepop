@@ -25,7 +25,7 @@ const GameOverModal = (props) => (
         </h1>
         <h4 className="gameover-modal__header">Top 5 Players</h4>
         <ol>
-            {props.top5Players.map((player => <li className="top5modal__list" key={player._id}>{player.username} - {player.score}</li>))}
+            {props.top5Players.map((player => <li className="top5-modal__list" key={player._id}>{player.username} - {player.score}</li>))}
         </ol>
 
         <h4 className="gameover-modal__header">Your Score: {props.score}</h4>

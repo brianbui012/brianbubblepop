@@ -32,11 +32,11 @@ class ColorGame extends React.Component {
             //light green (50, 153, 78) - green -- medium
             ["#349e51", "#2e8f48"],
             //lightblue - darkblue -- medium ------ good
-            ["#2f3896", "#2a3287"],
+            ["#2d3691", "#2a3287"],
             //dark blue - light blue -- medium /hard-------good
-            ["#313999", "#3740ad"],
+            ["#333b9e", "#3740ad"],
             //light red - dark red - easy / med  ---------easy
-            ["#913434", "#802f2f"],
+            ["#8c3232", "#802f2f"],
             //dark red - light red -- diff but good kinda hard
             ["#963939", "#a84040"],
             //light pink - pink --easy / med
