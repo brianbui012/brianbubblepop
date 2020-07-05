@@ -4,11 +4,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-
 const publicPath = path.join(__dirname, "..", "public");
-require('dotenv').config();
-
-
 
 app.use(cors());
 app.use(express.json());

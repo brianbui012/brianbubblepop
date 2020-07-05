@@ -31,12 +31,12 @@ class ColorGame extends React.Component {
             ["#309c4d", "#37b057"],
             //light green (50, 153, 78) - green -- medium
             ["#349e51", "#2e8f48"],
-            //lightblue - darkblue -- medium
-            ["#2e368f", "#2a3287"],
-            //dark blue - light blue -- medium
-            ["#333b9e", "#3740ad"],
-            //light red - dark red - easy / med
-            ["#8c3434", "#802f2f"],
+            //lightblue - darkblue -- medium ------ good
+            ["#2f3896", "#2a3287"],
+            //dark blue - light blue -- medium /hard-------good
+            ["#313999", "#3740ad"],
+            //light red - dark red - easy / med  ---------easy
+            ["#913434", "#802f2f"],
             //dark red - light red -- diff but good kinda hard
             ["#963939", "#a84040"],
             //light pink - pink --easy / med
@@ -196,29 +196,29 @@ class ColorGame extends React.Component {
     }
 
     sizeUp() {
-        if (this.state.score === 3) {
+        if (this.state.score === 5) {
             this.setState({ size: 9 });
-        } else if (this.state.score === 8) {
+        } else if (this.state.score === 11) {
             this.setState({ size: 16 });
-        } else if (this.state.score === 13) {
+        } else if (this.state.score === 16) {
             this.setState({ size: 25 })
-        } else if (this.state.score === 24) {
+        } else if (this.state.score === 26) {
             this.setState({ size: 36 })
         }
 
     }
 
     setCircleSize() {
-        if (this.state.score < 3) {
+        if (this.state.score < 5) {
             this.props.setLevel1();
-        } else if (this.state.score >= 24) {
+        } else if (this.state.score >= 26) {
             this.props.setLevel5();
-        } else if (this.state.score >= 13) {
+        } else if (this.state.score >= 16) {
             this.props.setLevel4();
-        } else if (this.state.score >= 8) {
+        } else if (this.state.score >= 11) {
             this.props.setLevel3();
         }
-        else if (this.state.score >= 3) {
+        else if (this.state.score >= 5) {
             this.props.setLevel2();
         }
 
