@@ -43,6 +43,28 @@ class ColorGame extends React.Component {
             ["#db8fd6", '#c983c5'],
 
         ];
+        // =============OLDER EASIER SET =========================
+        // this.colorSet = [
+        //     //yellow
+        //     ["#e8d505", "#d9c704"],
+        //     //green
+        //     ["#33a151", "#2e8f48"],
+        //     //blue
+        //     ["#2e368f", "#282f7d"],
+        //     //red
+        //     ["#873333", "#7a2f2f"],
+        //     //light red - red
+        //     ["#9e3c3c", "#873333"],
+        //     //light blue - blue
+        //     ["#333b9e", "#2b338c"],
+        //     //light green - green
+        //     ["#32994e", "#2e8f48"],
+        //     //light pink - pink
+        //     ["#d68bd1", '#bd7bb8'],
+
+        // ];
+
+
 
         this.startGame = this.startGame.bind(this);
         this.loadColor = this.loadColor.bind(this);
@@ -341,8 +363,8 @@ class ColorGame extends React.Component {
                     </h1>
                 </Animated>
                 <div className="main-container__score-time">
-                    <h3 class="main-container__time">TIME: <span>{this.props.timer.timeLeft}</span></h3>
-                    <h3 class="main-container__score">SCORE: <span>{this.state.score}</span> </h3>
+                    <h3 className="main-container__time">TIME: <span>{this.props.timer.timeLeft}</span></h3>
+                    <h3 className="main-container__score">SCORE: <span>{this.state.score}</span> </h3>
                 </div>
 
                 {this.state.initialStart && <button className='main-container__htp-btn' onClick={this.openHowToPlayModal}>How To Play</button>}
