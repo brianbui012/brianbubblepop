@@ -2331,6 +2331,42 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 
 /***/ }),
 
+/***/ "./public/sounds/correct_chime.mp3":
+/*!*****************************************!*\
+  !*** ./public/sounds/correct_chime.mp3 ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"715ceda5923ff65b30a6d4f37a751afe.mp3\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wdWJsaWMvc291bmRzL2NvcnJlY3RfY2hpbWUubXAzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcHVibGljL3NvdW5kcy9jb3JyZWN0X2NoaW1lLm1wMz9mNzk4Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IF9fd2VicGFja19wdWJsaWNfcGF0aF9fICsgXCI3MTVjZWRhNTkyM2ZmNjViMzBhNmQ0ZjM3YTc1MWFmZS5tcDNcIjsiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./public/sounds/correct_chime.mp3\n");
+
+/***/ }),
+
+/***/ "./public/sounds/incorrect_chime.mp3":
+/*!*******************************************!*\
+  !*** ./public/sounds/incorrect_chime.mp3 ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"22cf92865c983a2b1682e784d438eed9.mp3\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wdWJsaWMvc291bmRzL2luY29ycmVjdF9jaGltZS5tcDMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9wdWJsaWMvc291bmRzL2luY29ycmVjdF9jaGltZS5tcDM/ZjEzZiJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArIFwiMjJjZjkyODY1Yzk4M2EyYjE2ODJlNzg0ZDQzOGVlZDkubXAzXCI7Il0sIm1hcHBpbmdzIjoiQUFBQTtBQUFBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./public/sounds/incorrect_chime.mp3\n");
+
+/***/ }),
+
+/***/ "./public/sounds/startChime.mp3":
+/*!**************************************!*\
+  !*** ./public/sounds/startChime.mp3 ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"0066b1ac1dc5700c887facf5ec583887.mp3\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wdWJsaWMvc291bmRzL3N0YXJ0Q2hpbWUubXAzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcHVibGljL3NvdW5kcy9zdGFydENoaW1lLm1wMz9kZTZhIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IF9fd2VicGFja19wdWJsaWNfcGF0aF9fICsgXCIwMDY2YjFhYzFkYzU3MDBjODg3ZmFjZjVlYzU4Mzg4Ny5tcDNcIjsiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./public/sounds/startChime.mp3\n");
+
+/***/ }),
+
 /***/ "./src/actions/game.js":
 /*!*****************************!*\
   !*** ./src/actions/game.js ***!
@@ -2447,7 +2483,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.startGameSound = exports.incorrectPlaySound = exports.correctPlaySound = undefined;\n\nvar _howler = __webpack_require__(/*! howler */ \"./node_modules/howler/dist/howler.js\");\n\nvar _startChime = __webpack_require__(/*! ../sounds/startChime.mp3 */ \"./src/sounds/startChime.mp3\");\n\nvar _startChime2 = _interopRequireDefault(_startChime);\n\nvar _incorrect_chime = __webpack_require__(/*! ../sounds/incorrect_chime.mp3 */ \"./src/sounds/incorrect_chime.mp3\");\n\nvar _incorrect_chime2 = _interopRequireDefault(_incorrect_chime);\n\nvar _correct_chime = __webpack_require__(/*! ../sounds/correct_chime.mp3 */ \"./src/sounds/correct_chime.mp3\");\n\nvar _correct_chime2 = _interopRequireDefault(_correct_chime);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar startGameAudio = new _howler.Howl({\n    src: [_startChime2.default],\n    volume: 0.35\n});\n\nvar correctAudio = new _howler.Howl({\n    src: [_correct_chime2.default],\n    volume: 0.35\n});\n\nvar incorrectAudio = new _howler.Howl({\n    src: [_incorrect_chime2.default],\n    volume: 0.35\n});\n\nvar startGameSound = function startGameSound() {\n    startGameAudio.play();\n};\n\nvar correctPlaySound = function correctPlaySound() {\n    correctAudio.play();\n};\n\nvar incorrectPlaySound = function incorrectPlaySound() {\n    incorrectAudio.play();\n};\n\nexports.correctPlaySound = correctPlaySound;\nexports.incorrectPlaySound = incorrectPlaySound;\nexports.startGameSound = startGameSound;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9zb3VuZHMuanMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL2NvbXBvbmVudHMvc291bmRzLmpzPzNkZjciXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSG93bCB9IGZyb20gJ2hvd2xlcic7XHJcbmltcG9ydCBzdGFydENoaW1lIGZyb20gJy4uL3NvdW5kcy9zdGFydENoaW1lLm1wMyc7XHJcbmltcG9ydCBpbmNvcnJlY3RDaGltZSBmcm9tICcuLi9zb3VuZHMvaW5jb3JyZWN0X2NoaW1lLm1wMydcclxuaW1wb3J0IGNvcnJlY3RDaGltZSBmcm9tICcuLi9zb3VuZHMvY29ycmVjdF9jaGltZS5tcDMnO1xyXG5cclxuY29uc3Qgc3RhcnRHYW1lQXVkaW8gPSBuZXcgSG93bCh7XHJcbiAgICBzcmM6IFtzdGFydENoaW1lXSxcclxuICAgIHZvbHVtZTogMC4zNVxyXG59KTtcclxuXHJcbmNvbnN0IGNvcnJlY3RBdWRpbyA9IG5ldyBIb3dsKHtcclxuICAgIHNyYzogW2NvcnJlY3RDaGltZV0sXHJcbiAgICB2b2x1bWU6IDAuMzVcclxufSk7XHJcblxyXG5jb25zdCBpbmNvcnJlY3RBdWRpbyA9IG5ldyBIb3dsKHtcclxuICAgIHNyYzogW2luY29ycmVjdENoaW1lXSxcclxuICAgIHZvbHVtZTogMC4zNVxyXG59KTtcclxuXHJcblxyXG5jb25zdCBzdGFydEdhbWVTb3VuZCA9ICgpID0+IHtcclxuICAgIHN0YXJ0R2FtZUF1ZGlvLnBsYXkoKTtcclxufVxyXG5cclxuY29uc3QgY29ycmVjdFBsYXlTb3VuZCA9ICgpID0+IHtcclxuICAgIGNvcnJlY3RBdWRpby5wbGF5KCk7XHJcbn1cclxuXHJcbmNvbnN0IGluY29ycmVjdFBsYXlTb3VuZCA9ICgpID0+IHtcclxuICAgIGluY29ycmVjdEF1ZGlvLnBsYXkoKTtcclxufVxyXG5cclxuZXhwb3J0IHsgY29ycmVjdFBsYXlTb3VuZCwgaW5jb3JyZWN0UGxheVNvdW5kLCBzdGFydEdhbWVTb3VuZCB9O1xyXG5cclxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7QUFDQTtBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7Ozs7O0FBQ0E7QUFDQTtBQUNBO0FBRkE7QUFDQTtBQUlBO0FBQ0E7QUFDQTtBQUZBO0FBQ0E7QUFJQTtBQUNBO0FBQ0E7QUFGQTtBQUNBO0FBS0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUFBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/components/sounds.js\n");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.startGameSound = exports.incorrectPlaySound = exports.correctPlaySound = undefined;\n\nvar _howler = __webpack_require__(/*! howler */ \"./node_modules/howler/dist/howler.js\");\n\nvar _startChime = __webpack_require__(/*! ../../public/sounds/startChime.mp3 */ \"./public/sounds/startChime.mp3\");\n\nvar _startChime2 = _interopRequireDefault(_startChime);\n\nvar _incorrect_chime = __webpack_require__(/*! ../../public/sounds/incorrect_chime.mp3 */ \"./public/sounds/incorrect_chime.mp3\");\n\nvar _incorrect_chime2 = _interopRequireDefault(_incorrect_chime);\n\nvar _correct_chime = __webpack_require__(/*! ../../public/sounds/correct_chime.mp3 */ \"./public/sounds/correct_chime.mp3\");\n\nvar _correct_chime2 = _interopRequireDefault(_correct_chime);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar startGameAudio = new _howler.Howl({\n    src: [_startChime2.default],\n    volume: 0.35\n});\n\nvar correctAudio = new _howler.Howl({\n    src: [_correct_chime2.default],\n    volume: 0.35\n});\n\nvar incorrectAudio = new _howler.Howl({\n    src: [_incorrect_chime2.default],\n    volume: 0.35\n});\n\nvar startGameSound = function startGameSound() {\n    startGameAudio.play();\n};\n\nvar correctPlaySound = function correctPlaySound() {\n    correctAudio.play();\n};\n\nvar incorrectPlaySound = function incorrectPlaySound() {\n    incorrectAudio.play();\n};\n\nexports.correctPlaySound = correctPlaySound;\nexports.incorrectPlaySound = incorrectPlaySound;\nexports.startGameSound = startGameSound;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9zb3VuZHMuanMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL2NvbXBvbmVudHMvc291bmRzLmpzPzNkZjciXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSG93bCB9IGZyb20gJ2hvd2xlcic7XHJcbmltcG9ydCBzdGFydENoaW1lIGZyb20gJy4uLy4uL3B1YmxpYy9zb3VuZHMvc3RhcnRDaGltZS5tcDMnO1xyXG5pbXBvcnQgaW5jb3JyZWN0Q2hpbWUgZnJvbSAnLi4vLi4vcHVibGljL3NvdW5kcy9pbmNvcnJlY3RfY2hpbWUubXAzJ1xyXG5pbXBvcnQgY29ycmVjdENoaW1lIGZyb20gJy4uLy4uL3B1YmxpYy9zb3VuZHMvY29ycmVjdF9jaGltZS5tcDMnO1xyXG5cclxuY29uc3Qgc3RhcnRHYW1lQXVkaW8gPSBuZXcgSG93bCh7XHJcbiAgICBzcmM6IFtzdGFydENoaW1lXSxcclxuICAgIHZvbHVtZTogMC4zNVxyXG59KTtcclxuXHJcbmNvbnN0IGNvcnJlY3RBdWRpbyA9IG5ldyBIb3dsKHtcclxuICAgIHNyYzogW2NvcnJlY3RDaGltZV0sXHJcbiAgICB2b2x1bWU6IDAuMzVcclxufSk7XHJcblxyXG5jb25zdCBpbmNvcnJlY3RBdWRpbyA9IG5ldyBIb3dsKHtcclxuICAgIHNyYzogW2luY29ycmVjdENoaW1lXSxcclxuICAgIHZvbHVtZTogMC4zNVxyXG59KTtcclxuXHJcblxyXG5jb25zdCBzdGFydEdhbWVTb3VuZCA9ICgpID0+IHtcclxuICAgIHN0YXJ0R2FtZUF1ZGlvLnBsYXkoKTtcclxufVxyXG5cclxuY29uc3QgY29ycmVjdFBsYXlTb3VuZCA9ICgpID0+IHtcclxuICAgIGNvcnJlY3RBdWRpby5wbGF5KCk7XHJcbn1cclxuXHJcbmNvbnN0IGluY29ycmVjdFBsYXlTb3VuZCA9ICgpID0+IHtcclxuICAgIGluY29ycmVjdEF1ZGlvLnBsYXkoKTtcclxufVxyXG5cclxuZXhwb3J0IHsgY29ycmVjdFBsYXlTb3VuZCwgaW5jb3JyZWN0UGxheVNvdW5kLCBzdGFydEdhbWVTb3VuZCB9O1xyXG5cclxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7QUFDQTtBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7OztBQUFBO0FBQ0E7Ozs7O0FBQ0E7QUFDQTtBQUNBO0FBRkE7QUFDQTtBQUlBO0FBQ0E7QUFDQTtBQUZBO0FBQ0E7QUFJQTtBQUNBO0FBQ0E7QUFGQTtBQUNBO0FBS0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUFBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/components/sounds.js\n");
 
 /***/ }),
 
@@ -2472,42 +2508,6 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 
 "use strict";
 eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\n//STATE =========================================================\nvar timerReducerDefaultState = {\n    timeLeft: 25,\n    timerId: undefined\n};\n\n//REDUCER ========================================================\n\n\nvar timerReducer = function timerReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : timerReducerDefaultState;\n    var action = arguments[1];\n\n    switch (action.type) {\n        case 'START_TIMER':\n            return _extends({}, state, { timeLeft: action.timeLeft });\n        case 'SET_TIMER_ID':\n            return _extends({}, state, { timerId: action.timerId });\n        case 'ADD_TIME':\n            return _extends({}, state, { timeLeft: state.timeLeft + 0.5 });\n        case 'SUB_TIME':\n            return _extends({}, state, { timeLeft: state.timeLeft - 0.5 });\n\n        default:\n            return state;\n    }\n};\n\nexports.default = timerReducer;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcmVkdWNlcnMvdGltZXIuanMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL3JlZHVjZXJzL3RpbWVyLmpzPzk0NmMiXSwic291cmNlc0NvbnRlbnQiOlsiLy9TVEFURSA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cclxuY29uc3QgdGltZXJSZWR1Y2VyRGVmYXVsdFN0YXRlID0ge1xyXG4gICAgdGltZUxlZnQ6IDI1LFxyXG4gICAgdGltZXJJZDogdW5kZWZpbmVkXHJcbn07XHJcblxyXG4vL1JFRFVDRVIgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cclxuXHJcblxyXG5jb25zdCB0aW1lclJlZHVjZXIgPSAoc3RhdGUgPSB0aW1lclJlZHVjZXJEZWZhdWx0U3RhdGUsIGFjdGlvbikgPT4ge1xyXG4gICAgc3dpdGNoIChhY3Rpb24udHlwZSkge1xyXG4gICAgICAgIGNhc2UgJ1NUQVJUX1RJTUVSJzpcclxuICAgICAgICAgICAgcmV0dXJuIHsgLi4uc3RhdGUsIHRpbWVMZWZ0OiBhY3Rpb24udGltZUxlZnQgfTtcclxuICAgICAgICBjYXNlICdTRVRfVElNRVJfSUQnOlxyXG4gICAgICAgICAgICByZXR1cm4geyAuLi5zdGF0ZSwgdGltZXJJZDogYWN0aW9uLnRpbWVySWQgfTtcclxuICAgICAgICBjYXNlICdBRERfVElNRSc6XHJcbiAgICAgICAgICAgIHJldHVybiB7IC4uLnN0YXRlLCB0aW1lTGVmdDogc3RhdGUudGltZUxlZnQgKyAwLjUgfTtcclxuICAgICAgICBjYXNlICdTVUJfVElNRSc6XHJcbiAgICAgICAgICAgIHJldHVybiB7IC4uLnN0YXRlLCB0aW1lTGVmdDogc3RhdGUudGltZUxlZnQgLSAwLjUgfTtcclxuXHJcbiAgICAgICAgZGVmYXVsdDpcclxuICAgICAgICAgICAgcmV0dXJuIHN0YXRlO1xyXG4gICAgfVxyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgdGltZXJSZWR1Y2VyOyJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUZBO0FBQ0E7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBQUE7QUFDQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQVhBO0FBYUE7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/reducers/timer.js\n");
-
-/***/ }),
-
-/***/ "./src/sounds/correct_chime.mp3":
-/*!**************************************!*\
-  !*** ./src/sounds/correct_chime.mp3 ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"715ceda5923ff65b30a6d4f37a751afe.mp3\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc291bmRzL2NvcnJlY3RfY2hpbWUubXAzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL3NvdW5kcy9jb3JyZWN0X2NoaW1lLm1wMz9hZTJlIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IF9fd2VicGFja19wdWJsaWNfcGF0aF9fICsgXCI3MTVjZWRhNTkyM2ZmNjViMzBhNmQ0ZjM3YTc1MWFmZS5tcDNcIjsiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/sounds/correct_chime.mp3\n");
-
-/***/ }),
-
-/***/ "./src/sounds/incorrect_chime.mp3":
-/*!****************************************!*\
-  !*** ./src/sounds/incorrect_chime.mp3 ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"22cf92865c983a2b1682e784d438eed9.mp3\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc291bmRzL2luY29ycmVjdF9jaGltZS5tcDMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvc291bmRzL2luY29ycmVjdF9jaGltZS5tcDM/NjAyYiJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArIFwiMjJjZjkyODY1Yzk4M2EyYjE2ODJlNzg0ZDQzOGVlZDkubXAzXCI7Il0sIm1hcHBpbmdzIjoiQUFBQTtBQUFBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/sounds/incorrect_chime.mp3\n");
-
-/***/ }),
-
-/***/ "./src/sounds/startChime.mp3":
-/*!***********************************!*\
-  !*** ./src/sounds/startChime.mp3 ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"0066b1ac1dc5700c887facf5ec583887.mp3\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc291bmRzL3N0YXJ0Q2hpbWUubXAzLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL3NvdW5kcy9zdGFydENoaW1lLm1wMz8xYWRmIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IF9fd2VicGFja19wdWJsaWNfcGF0aF9fICsgXCIwMDY2YjFhYzFkYzU3MDBjODg3ZmFjZjVlYzU4Mzg4Ny5tcDNcIjsiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/sounds/startChime.mp3\n");
 
 /***/ }),
 
