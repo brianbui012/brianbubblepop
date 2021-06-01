@@ -127,7 +127,6 @@ class ColorGame extends React.Component {
   }
 
   loadColor() {
-    //Selects a random color within the colorSet
     const randomNumber = Math.floor(Math.random() * 8);
     this.setState({ colorPair: this.colorSet[randomNumber] }, () => {
       /*Out of the pair chosen set the first color to the first element in the array,
@@ -205,10 +204,6 @@ class ColorGame extends React.Component {
 
   increment() {
     this.setState({ score: this.state.score + 1 });
-    //if there are multiple this.setStates in a row, you should use this.setState((prevState) => {})
-    //because it will properly update them, if you use this.state.score since its an async function, it wont addu properly,
-    // you can call do this.state.score + 1, four times and it will only be +2 because the get grouped together and not
-    //updated properly.
   }
 
   sizeUp() {
