@@ -13,9 +13,6 @@ app.use(express.static(publicPath));
 
 connectDB();
 
-// if (process.env.NODE_ENV === 'production'){
-//     app.use(express.static('node_'))
-// }
 
 
 const usersRouter = require('../backend/routes/User')

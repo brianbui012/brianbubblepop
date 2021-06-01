@@ -9,3 +9,4 @@ That's the thing, you would sort and filter it on the backend
 And only send the axios request once the scoreboard shows
 
 Move the axios request on the backend side ^^^
+Fix the axios top 5 so if there are no scores to automatically put into top 5
